@@ -1,4 +1,8 @@
 restclient
 ==========
 
-okhttp, retrofit, autovalue
+Github rest api
+
+okhttp, retrofit, autovalue, gson
+
+
