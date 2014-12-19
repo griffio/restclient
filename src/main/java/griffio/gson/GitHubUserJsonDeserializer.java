@@ -5,7 +5,7 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import griffio.rest.GitHubRepository;
+import griffio.rest.GitHubUser;
 
 import java.lang.reflect.Type;
 /**
@@ -40,12 +40,12 @@ import java.lang.reflect.Type;
  * "updated_at": "2014-12-18T18:29:53Z",
  * "url": "https://api.github.com/users/griffio"
  */
-public class RepositoryJsonDeserializer implements JsonDeserializer<GitHubRepository> {
+public class GitHubUserJsonDeserializer implements JsonDeserializer<GitHubUser> {
 
     @Override
-    public GitHubRepository deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+    public GitHubUser deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject obj = json.getAsJsonObject();
-        return GitHubRepository.create(obj.get("avatar_url").getAsString(), obj.get("email").getAsString(), obj.get("hireable").getAsBoolean(),
+        return GitHubUser.create(obj.get("avatar_url").getAsString(), obj.get("email").getAsString(), obj.get("hireable").getAsBoolean(),
                 obj.get("id").getAsLong(), obj.get("name").getAsString());
     }
 }

@@ -3,9 +3,9 @@ package griffio.rest;
 import com.google.auto.value.AutoValue;
 
 @AutoValue
-public abstract class GitHubRepository {
+public abstract class GitHubUser {
 
-    GitHubRepository() {
+    GitHubUser() {
     }
 
     public abstract String avatarUrl();
@@ -18,7 +18,7 @@ public abstract class GitHubRepository {
 
     public abstract String name();
 
-    public static GitHubRepository create(String avatarUrl, String email, Boolean hireable, Long id, String name) {
-        return new AutoValue_GitHubRepository(avatarUrl, email, hireable, id, name);
+    public static GitHubUser create(String avatarUrl, String email, Boolean hireable, Long id, String name) {
+        return new AutoValue_GitHubUser(avatarUrl, email, hireable, id, name);
     }
 }

@@ -1,8 +1,8 @@
 package griffio.rest;
 
-import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import griffio.gson.GitHubUserJsonDeserializer;
 import retrofit.RestAdapter;
 import retrofit.converter.GsonConverter;
 
@@ -12,13 +12,13 @@ public class GitHubRestClient {
 
     public GitHubRestClient() {
 
-        Gson camelCaseGson = new GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(GitHubUser.class, new GitHubUserJsonDeserializer())
                 .create();
 
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint("https://api.github.com")
-                .setConverter(new GsonConverter(camelCaseGson))
+                .setConverter(new GsonConverter(gson))
                 .build();
 
         gitHubApiService = restAdapter.create(GitHubApiService.class);

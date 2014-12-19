@@ -2,7 +2,7 @@ package griffio.gson;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import griffio.rest.GitHubRepository;
+import griffio.rest.GitHubUser;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,10 +16,10 @@ public class FixtureTests {
         String repoJson = JsonResource.fixture("github-repository.json");
 
         Gson gson = new GsonBuilder()
-                .registerTypeAdapter(GitHubRepository.class, new RepositoryJsonDeserializer())
+                .registerTypeAdapter(GitHubUser.class, new GitHubUserJsonDeserializer())
                 .create();
 
-        GitHubRepository repository = gson.fromJson(repoJson, GitHubRepository.class);
+        GitHubUser repository = gson.fromJson(repoJson, GitHubUser.class);
 
         Assert.assertNotNull(repository);
 

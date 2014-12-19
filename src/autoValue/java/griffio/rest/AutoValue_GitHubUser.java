@@ -4,7 +4,7 @@ package griffio.rest;
 import javax.annotation.Generated;
 
 @Generated("com.google.auto.value.processor.AutoValueProcessor")
-final class AutoValue_GitHubRepository extends GitHubRepository {
+final class AutoValue_GitHubUser extends GitHubUser {
 
   private final String avatarUrl;
   private final String email;
@@ -12,12 +12,12 @@ final class AutoValue_GitHubRepository extends GitHubRepository {
   private final Long id;
   private final String name;
 
-  AutoValue_GitHubRepository(
-      String avatarUrl,
-      String email,
-      Boolean hireable,
-      Long id,
-      String name) {
+  AutoValue_GitHubUser(
+          String avatarUrl,
+          String email,
+          Boolean hireable,
+          Long id,
+          String name) {
     if (avatarUrl == null) {
       throw new NullPointerException("Null avatarUrl");
     }
@@ -81,8 +81,8 @@ final class AutoValue_GitHubRepository extends GitHubRepository {
     if (o == this) {
       return true;
     }
-    if (o instanceof GitHubRepository) {
-      GitHubRepository that = (GitHubRepository) o;
+    if (o instanceof GitHubUser) {
+      GitHubUser that = (GitHubUser) o;
       return (this.avatarUrl.equals(that.avatarUrl()))
            && (this.email.equals(that.email()))
            && (this.hireable.equals(that.hireable()))
