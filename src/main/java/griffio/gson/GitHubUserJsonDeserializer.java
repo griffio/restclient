@@ -45,7 +45,11 @@ public class GitHubUserJsonDeserializer implements JsonDeserializer<GitHubUser> 
     @Override
     public GitHubUser deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject obj = json.getAsJsonObject();
-        return GitHubUser.create(obj.get("avatar_url").getAsString(), obj.get("email").getAsString(), obj.get("hireable").getAsBoolean(),
-                obj.get("id").getAsLong(), obj.get("name").getAsString());
+        return GitHubUser.create(
+                obj.get("avatar_url").getAsString(),
+                obj.get("email").getAsString(),
+                obj.get("hireable").getAsBoolean(),
+                obj.get("id").getAsLong(),
+                obj.get("name").getAsString());
     }
 }

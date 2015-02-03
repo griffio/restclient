@@ -13,11 +13,11 @@ final class AutoValue_GitHubUser extends GitHubUser {
   private final String name;
 
   AutoValue_GitHubUser(
-          String avatarUrl,
-          String email,
-          Boolean hireable,
-          Long id,
-          String name) {
+      String avatarUrl,
+      String email,
+      Boolean hireable,
+      Long id,
+      String name) {
     if (avatarUrl == null) {
       throw new NullPointerException("Null avatarUrl");
     }
@@ -67,7 +67,7 @@ final class AutoValue_GitHubUser extends GitHubUser {
 
   @Override
   public String toString() {
-    return "GitHubRepository{"
+    return "GitHubUser{"
         + "avatarUrl=" + avatarUrl + ", "
         + "email=" + email + ", "
         + "hireable=" + hireable + ", "
