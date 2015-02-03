@@ -1,6 +1,5 @@
 package griffio;
 
-import com.google.common.base.Optional;
 import griffio.rest.GitHubRestClient;
 import griffio.rest.GitHubUser;
 
