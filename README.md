@@ -17,7 +17,7 @@ gradle build
 plugins {
     id 'application'
     id 'java'
-    id 'com.ewerk.gradle.plugins.auto-value' version '1.0.1'
+    id 'com.ewerk.gradle.plugins.auto-value' version '1.0.3'
 }
 
 mainClassName = "griffio.MainApplication"
@@ -31,14 +31,14 @@ repositories {
 }
 
 dependencies {
-    compile('com.squareup.retrofit:retrofit:1.8.0',
-            'com.squareup.okhttp:okhttp:2.1.0',
-            'com.squareup.okhttp:okhttp-urlconnection:2.1.0'
+    compile("com.squareup.retrofit:retrofit:${retrofitVersion}",
+            "com.squareup.okhttp:okhttp:${okhttpVersion}",
+            "com.squareup.okhttp:okhttp-urlconnection:${okhttpVersion}"
     )
-    testCompile('junit:junit:4.11')
+    testCompile("junit:junit:${junitVersion}")
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '2.2.1'
+  gradleVersion = '2.4'
 }
 ~~~

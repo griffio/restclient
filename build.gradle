@@ -15,11 +15,11 @@ repositories {
 }
 
 dependencies {
-    compile('com.squareup.retrofit:retrofit:1.9.0',
-            'com.squareup.okhttp:okhttp:2.3.0',
-            'com.squareup.okhttp:okhttp-urlconnection:2.3.0'
+    compile("com.squareup.retrofit:retrofit:${retrofitVersion}",
+            "com.squareup.okhttp:okhttp:${okhttpVersion}",
+            "com.squareup.okhttp:okhttp-urlconnection:${okhttpVersion}"
     )
-    testCompile('junit:junit:4.11')
+    testCompile("junit:junit:${junitVersion}")
 }
 
 task wrapper(type: Wrapper) {
