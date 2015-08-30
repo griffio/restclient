@@ -17,11 +17,12 @@ repositories {
 dependencies {
     compile("com.squareup.retrofit:retrofit:${retrofitVersion}",
             "com.squareup.okhttp:okhttp:${okhttpVersion}",
-            "com.squareup.okhttp:okhttp-urlconnection:${okhttpVersion}"
+            "com.squareup.okhttp:okhttp-urlconnection:${okhttpVersion}",
+            "com.google.guava:guava:${guavaVersion}"
     )
     testCompile("junit:junit:${junitVersion}")
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '2.4'
+  gradleVersion = '2.5'
 }
