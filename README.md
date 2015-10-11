@@ -3,7 +3,10 @@ restclient
 
 Example Github rest api to implement /users/{username} service call using:-
 
-okhttp, retrofit, autovalue, gson
+* [okhttp](https://github.com/square/okhttp)
+* [retrofit](https://github.com/square/retrofit)
+* [autovalue](https://github.com/google/auto)
+* [gson](https://github.com/google/gson)
 
 ---
 
