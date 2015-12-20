@@ -2,6 +2,7 @@ package griffio;
 
 import griffio.rest.GitHubRestClient;
 import griffio.rest.GitHubUser;
+import retrofit.Call;
 
 public class MainApplication {
 
@@ -9,7 +10,7 @@ public class MainApplication {
 
         String username = args.length != 0 ? args[0] : "griffio";
 
-        GitHubUser user = new GitHubRestClient().getGitHubApiService().user(username);
+        Call<GitHubUser> user = new GitHubRestClient().getGitHubApiService().user(username);
 
         System.out.println(user);
 

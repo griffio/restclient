@@ -11,7 +11,7 @@ import java.io.IOException;
 public class FixtureTests {
 
     @Test
-    public void deserialise() throws IOException {
+    public void deserialize() throws IOException {
 
         String repoJson = JsonResource.fixture("github-repository.json");
 
