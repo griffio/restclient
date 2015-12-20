@@ -14,41 +14,36 @@ import java.io.IOException;
 
 public class GitHubRestClient {
 
-    private final GitHubApiService gitHubApiService;
+  private final GitHubApiService gitHubApiService;
 
-    public GitHubRestClient() {
+  public GitHubRestClient() {
 
-        final Interceptor acceptIntercept = new Interceptor() {
-            @Override
-            public Response intercept(Chain chain) throws IOException {
+    final Interceptor acceptIntercept = new Interceptor() {
+      @Override
+      public Response intercept(Chain chain) throws IOException {
+        Request request = chain.request();
+        request = request.newBuilder().header("Accept", "application/vnd.github.v3+json").build();
+        return chain.proceed(request);
+      }
+    };
 
-                Request request = chain.request();
+    Gson gson = new GsonBuilder()
+        .registerTypeAdapter(GitHubUser.class, new GitHubUserJsonDeserializer())
+        .create();
 
-                request.headers().newBuilder()
-                        .add("Accept", "application/vnd.github.v3+json")
-                        .build();
+    OkHttpClient client = new OkHttpClient();
+    client.interceptors().add(acceptIntercept);
 
-                return chain.proceed(request);
-            }
-        };
+    Retrofit retrofit = new Retrofit.Builder()
+        .addConverterFactory(GsonConverterFactory.create(gson))
+        .baseUrl("https://api.github.com")
+        .client(client)
+        .build();
 
-        Gson gson = new GsonBuilder()
-                .registerTypeAdapter(GitHubUser.class, new GitHubUserJsonDeserializer())
-                .create();
+    gitHubApiService = retrofit.create(GitHubApiService.class);
+  }
 
-        OkHttpClient client = new OkHttpClient();
-        client.interceptors().add(acceptIntercept);
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl("https://api.github.com")
-                .client(client)
-                .build();
-
-        gitHubApiService = retrofit.create(GitHubApiService.class);
-    }
-
-    public GitHubApiService getGitHubApiService() {
-        return gitHubApiService;
-    }
+  public GitHubApiService getGitHubApiService() {
+    return gitHubApiService;
+  }
 }
