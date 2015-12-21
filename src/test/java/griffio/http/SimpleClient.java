@@ -12,7 +12,7 @@ import java.io.IOException;
 public class SimpleClient {
 
   @Test
-  public void accept_language_interceptor_is_es() throws IOException {
+  public void accept_language_interceptor_request() throws IOException {
 
     final String expected = "fr";
 
