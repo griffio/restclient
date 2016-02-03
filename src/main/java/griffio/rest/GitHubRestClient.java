@@ -2,13 +2,13 @@ package griffio.rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.squareup.okhttp.Interceptor;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import griffio.gson.GitHubUserJsonDeserializer;
-import retrofit.GsonConverterFactory;
-import retrofit.Retrofit;
+import retrofit2.GsonConverterFactory;
+import retrofit2.Retrofit;
 
 import java.io.IOException;
 
@@ -31,8 +31,8 @@ public class GitHubRestClient {
         .registerTypeAdapter(GitHubUser.class, new GitHubUserJsonDeserializer())
         .create();
 
-    OkHttpClient client = new OkHttpClient();
-    client.interceptors().add(acceptIntercept);
+    OkHttpClient client = new OkHttpClient().newBuilder()
+        .addInterceptor(acceptIntercept).build();
 
     Retrofit retrofit = new Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create(gson))

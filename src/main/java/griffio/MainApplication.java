@@ -3,7 +3,7 @@ package griffio;
 import griffio.rest.GitHubApiService;
 import griffio.rest.GitHubRestClient;
 import griffio.rest.GitHubUser;
-import retrofit.Call;
+import retrofit2.Call;
 
 import java.io.IOException;
 

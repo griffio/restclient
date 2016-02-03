@@ -15,10 +15,10 @@ repositories {
 }
 
 dependencies {
-    compile("com.squareup.retrofit:retrofit:${retrofitVersion}",
-            "com.squareup.retrofit:converter-gson:${retrofitVersion}",
-            "com.squareup.okhttp:okhttp:${okhttpVersion}",
-            "com.squareup.okhttp:okhttp-urlconnection:${okhttpVersion}",
+    compile("com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            "com.squareup.okhttp3:okhttp:${okhttpVersion}",
+            "com.squareup.okhttp3:okhttp-urlconnection:${okhttpVersion}",
             "com.google.code.gson:gson:${gsonVersion}",
             "com.google.guava:guava:${guavaVersion}"
     )

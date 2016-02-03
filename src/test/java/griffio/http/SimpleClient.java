@@ -1,13 +1,14 @@
 package griffio.http;
 
-import com.squareup.okhttp.*;
 import griffio.rest.GitHubRestClient;
 import griffio.rest.GitHubUser;
+import java.io.IOException;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import retrofit2.Call;
 import org.junit.Assert;
 import org.junit.Test;
-import retrofit.Call;
-
-import java.io.IOException;
 
 public class SimpleClient {
 
@@ -16,20 +17,11 @@ public class SimpleClient {
 
     final String expected = "fr";
 
-    final Interceptor acceptLanguage = new Interceptor() {
-      @Override
-      public Response intercept(Chain chain) throws IOException {
-        Request request = chain.request();
-        request = request.newBuilder().header("Accept-Language", expected).build();
-        return chain.proceed(request);
-      }
-    };
-
     OkHttpClient client = new OkHttpClient();
-    client.interceptors().add(acceptLanguage);
 
     Request request = new Request.Builder()
         .url("http://www.w3.org/2004/11/sptour-pressrelease")
+        .header("Accept-Language", expected)
         .build();
 
     Response response = client.newCall(request).execute();
@@ -37,7 +29,6 @@ public class SimpleClient {
     String contentLanguage = response.header("Content-Language");
 
     Assert.assertEquals("requested language", expected, contentLanguage);
-
   }
 
   @Test
