@@ -12,7 +12,9 @@ okhttp3 3.4.x
 * [gson](https://github.com/google/gson)
 
 ---
-When using Intellij 2016 or higher with gradle import, **uncheck** "create separate module per source set" as project needs Autovalue sources on classpath.
+
+Note: Intellij 2016 or higher with gradle import, **uncheck** "create separate module per source set" as project needs Autovalue sources on classpath.
+
 ---
 
 gradle build
