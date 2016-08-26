@@ -3,14 +3,16 @@ restclient
 
 Example Github rest api to implement /users/{username} service call using:-
 
-retrofit2 2.0.0-beta3
-okhttp3 3.0.1
+retrofit2 2.1.x
+okhttp3 3.4.x
 
 * [okhttp](https://github.com/square/okhttp)
 * [retrofit](https://github.com/square/retrofit)
 * [autovalue](https://github.com/google/auto)
 * [gson](https://github.com/google/gson)
 
+---
+When using Intellij 2016 or higher with gradle import, **uncheck** "create separate module per source set" as project needs Autovalue sources on classpath.
 ---
 
 gradle build
@@ -23,7 +25,7 @@ gradle build
 plugins {
     id 'application'
     id 'java'
-    id 'com.ewerk.gradle.plugins.auto-value' version '1.0.4'
+    id 'com.ewerk.gradle.plugins.auto-value' version '1.0.6'
 }
 
 mainClassName = "griffio.MainApplication"
@@ -48,7 +50,6 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '2.5'
+  gradleVersion = '3.0'
 }
-
 ~~~
