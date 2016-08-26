@@ -10,19 +10,17 @@ import java.io.IOException;
 
 public class FixtureTests {
 
-    @Test
-    public void deserialize() throws IOException {
+  @Test
+  public void deserialize() throws IOException {
 
-        String repoJson = JsonResource.fixture("github-repository.json");
+    String repoJson = JsonResource.fixture("github-repository.json");
 
-        Gson gson = new GsonBuilder()
-                .registerTypeAdapter(GitHubUser.class, new GitHubUserJsonDeserializer())
-                .create();
+    Gson gson = new GsonBuilder()
+        .registerTypeAdapter(GitHubUser.class, new GitHubUserJsonDeserializer())
+        .create();
 
-        GitHubUser repository = gson.fromJson(repoJson, GitHubUser.class);
+    GitHubUser repository = gson.fromJson(repoJson, GitHubUser.class);
 
-        Assert.assertNotNull(repository);
-
-    }
-
+    Assert.assertNotNull(repository);
+  }
 }

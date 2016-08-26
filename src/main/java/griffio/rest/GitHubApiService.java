@@ -8,5 +8,4 @@ public interface GitHubApiService {
 
     @GET("/users/{username}")
     Call<GitHubUser> user(@Path("username") String username);
-    
 }
