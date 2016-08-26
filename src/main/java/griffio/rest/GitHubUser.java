@@ -16,9 +16,11 @@ public abstract class GitHubUser {
 
     public abstract Long id();
 
+    public abstract String login();
+
     public abstract String name();
 
-    public static GitHubUser create(String avatarUrl, String email, Boolean hireable, Long id, String name) {
-        return new AutoValue_GitHubUser(avatarUrl, email, hireable, id, name);
+    public static GitHubUser create(String avatarUrl, String email, Boolean hireable, Long id, String login, String name) {
+        return new AutoValue_GitHubUser(avatarUrl, email, hireable, id, login, name);
     }
 }

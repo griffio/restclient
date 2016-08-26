@@ -50,6 +50,7 @@ public class GitHubUserJsonDeserializer implements JsonDeserializer<GitHubUser> 
                 obj.get("email").getAsString(),
                 obj.get("hireable").getAsBoolean(),
                 obj.get("id").getAsLong(),
+                obj.get("login").getAsString(),
                 obj.get("name").getAsString());
     }
 }

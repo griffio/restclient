@@ -10,6 +10,7 @@ final class AutoValue_GitHubUser extends GitHubUser {
   private final String email;
   private final Boolean hireable;
   private final Long id;
+  private final String login;
   private final String name;
 
   AutoValue_GitHubUser(
@@ -17,6 +18,7 @@ final class AutoValue_GitHubUser extends GitHubUser {
       String email,
       Boolean hireable,
       Long id,
+      String login,
       String name) {
     if (avatarUrl == null) {
       throw new NullPointerException("Null avatarUrl");
@@ -34,6 +36,10 @@ final class AutoValue_GitHubUser extends GitHubUser {
       throw new NullPointerException("Null id");
     }
     this.id = id;
+    if (login == null) {
+      throw new NullPointerException("Null login");
+    }
+    this.login = login;
     if (name == null) {
       throw new NullPointerException("Null name");
     }
@@ -61,6 +67,11 @@ final class AutoValue_GitHubUser extends GitHubUser {
   }
 
   @Override
+  public String login() {
+    return login;
+  }
+
+  @Override
   public String name() {
     return name;
   }
@@ -72,6 +83,7 @@ final class AutoValue_GitHubUser extends GitHubUser {
         + "email=" + email + ", "
         + "hireable=" + hireable + ", "
         + "id=" + id + ", "
+        + "login=" + login + ", "
         + "name=" + name
         + "}";
   }
@@ -87,6 +99,7 @@ final class AutoValue_GitHubUser extends GitHubUser {
            && (this.email.equals(that.email()))
            && (this.hireable.equals(that.hireable()))
            && (this.id.equals(that.id()))
+           && (this.login.equals(that.login()))
            && (this.name.equals(that.name()));
     }
     return false;
@@ -103,6 +116,8 @@ final class AutoValue_GitHubUser extends GitHubUser {
     h ^= hireable.hashCode();
     h *= 1000003;
     h ^= id.hashCode();
+    h *= 1000003;
+    h ^= login.hashCode();
     h *= 1000003;
     h ^= name.hashCode();
     return h;
